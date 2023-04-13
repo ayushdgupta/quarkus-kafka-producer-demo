@@ -5,6 +5,11 @@ mp:
     outgoing:
       words-out:
         topic: "words"
+      movies:
+        topic: "cinema"
+        connector: "smallrye-kafka"
+        value:
+          serializer: io.quarkus.kafka.client.serialization.ObjectMapperSerializer
     incoming:
       words-in:
         auto:
@@ -12,11 +17,11 @@ mp:
             reset: "earliest"
         topic: "words"
       incomingTopic:
+#        connector: "smallrye-kafka"
         topic: "quotes"
         auto:
           offset:
             reset: "earliest"
-
 quarkus:
   http:
     port: 8086

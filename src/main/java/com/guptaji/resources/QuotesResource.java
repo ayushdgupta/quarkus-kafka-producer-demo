@@ -5,6 +5,7 @@ import io.smallrye.mutiny.Multi;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
+import org.jboss.resteasy.reactive.RestStreamElementType;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -21,6 +22,7 @@ public class QuotesResource {
     @Channel("quote-data-request")
     Emitter<String> quoteDataRequestEmitter;
 
+//    @Inject
 //    @Channel("quotes")
 //    Multi<Quote> quotesData;
 
@@ -40,6 +42,7 @@ public class QuotesResource {
 
 //    @GET
 //    @Produces(MediaType.SERVER_SENT_EVENTS)
+//    @RestStreamElementType(MediaType.APPLICATION_JSON)
 //    public Multi<Quote> stream() {
 //        System.out.println("quotes data ------------- "+ quotesData);
 //        return quotesData;
